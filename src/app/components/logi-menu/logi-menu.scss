@@ -1,0 +1,10 @@
+// TODO: Change this to global import
+@import url('../../../themes/app.colors.scss');
+
+::ng-deep {
+    logi-menu {
+        width: 125px;
+        height: 100vh;
+        background-color: var(--secondary);
+    }
+}

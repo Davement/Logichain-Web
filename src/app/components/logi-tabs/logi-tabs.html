@@ -1,0 +1,5 @@
+<div class="tabs">
+    <p [class.selected]="tab.selected" *ngFor="let tab of tabs" (click)="onClickTab(tab.route)">{{tab.name}}</p>
+</div>
+<hr>
+<router-outlet name="view" (activate)='onActivateRoute($event)'></router-outlet>

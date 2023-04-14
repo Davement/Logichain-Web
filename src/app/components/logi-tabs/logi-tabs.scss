@@ -1,0 +1,31 @@
+// TODO: Change this to global import
+@import url('../../../themes/app.colors.scss');
+
+::ng-deep {
+    logi-tabs {
+        .tabs {
+            display: flex;
+            column-gap: 30px;
+            letter-spacing: 0.425px;            
+        
+            p {
+                color: var(--gray);
+                cursor: pointer;
+
+                &.selected, &:hover {
+                    color: var(--primary);
+                    font-weight: bold;
+                    letter-spacing: 0;
+                }
+            }
+        }
+        
+        hr {
+            background-color: var(--gray-light);
+            border: none;
+            height: 1px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+    }
+}

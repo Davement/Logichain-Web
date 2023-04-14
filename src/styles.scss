@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Inter;
+    src: url('./assets/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+* {
+    font-family: 'Inter', 'Arial';
+}
+
+h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+p {
+    margin: 0;
+    font-size: 15px;
+}
+
+// Global imports
+@import url('./themes/app.colors.scss');
+@import url('~normalize.css/normalize.css');
