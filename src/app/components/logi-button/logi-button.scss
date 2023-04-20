@@ -1,9 +1,26 @@
+// TODO: Change this to global import
+@import url('../../../themes/app.colors.scss');
+
 button {
     height: 40px;
     padding: 0 20px;
     border: none;
     border-radius: 7.5px;
     font-weight: bold;
-    background-color: #E5BA73;
-    color: white;
+    cursor: pointer;
+
+    &.primary {
+        background-color: var(--primary);
+        color: white;
+    }
+
+    &.error {
+        background-color: var(--error);
+        color: white;
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
 }

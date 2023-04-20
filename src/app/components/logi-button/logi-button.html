@@ -1,1 +1,4 @@
-<button>{{ text }}</button>
+<button *ngIf="visible"
+        [ngClass]="buttonType"
+        [attr.disabled]="disabled ? 'disabled' : null"
+        (click)="onButtonClick()">{{ text }}</button>
