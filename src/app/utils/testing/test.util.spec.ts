@@ -91,7 +91,7 @@ export module TestUtil {
     return jest.spyOn(object, method) as any;
   }
 
-  export function SpyOnProperty<T>(object: T, property: keyof T, accessType?: 'get' | 'set') {
+  export function SpyOnProperty<T>(object: T, property: keyof T, accessType?: 'get' | 'set'): any {
     const get = jest.fn().mockName(property.toString());
     if (accessType == 'get') {
       Object.defineProperty(object, property, {
@@ -110,7 +110,7 @@ export module TestUtil {
     return get;
   }
 
-  export function MostRecentCall<T extends (...args: any) => any>(method: T) {
+  export function MostRecentCall<T extends (...args: any) => any>(method: T): any {
     const spy: Spy<ReturnType<T>, jest.ArgsType<T>> = method as any;
     expect(spy).toHaveBeenCalled();
     return {
@@ -123,17 +123,17 @@ export module TestUtil {
 
 }
 
-export const configureTestSuite = () => {
+export const configureTestSuite = (): void => {
   const testBedApi: any = getTestBed();
   // let originalTimeoutInterval = 0;
   beforeAll(() => {
     // originalTimeoutInterval = jasmine.DEFAULT_TIMEOUT_INTERVAL;
     //jasmine.DEFAULT_TIMEOUT_INTERVAL = Math.pow(2, 31) - 1;
     TestBed.resetTestingModule();
-    TestBed.resetTestingModule = () => TestBed;
+    TestBed.resetTestingModule = (): TestBed => TestBed;
     testBedApi._testModuleRef = null;
   });
-  afterEach(() => {
+  afterEach((): void => {
     testBedApi._activeFixtures.forEach((fixture: ComponentFixture<any>) => {
       try {
         fixture.destroy();

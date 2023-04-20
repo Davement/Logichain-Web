@@ -30,7 +30,7 @@ export class LogiToolbar implements OnDestroy {
         this._toolbarController.clearItems();
     }
 
-    private _subscribeToEvents() {
+    private _subscribeToEvents(): void {
         this._toolbarController.itemsChanged.subscribe((item: IToolbarItem) => this._updateToolbarItems(item));
     }
 

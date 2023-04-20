@@ -13,28 +13,33 @@ export class LogiTabs implements OnInit {
 
     ngOnInit(): void {
         if (!this._router.url.includes('view')) {
-            this._router.navigate(['locations', { outlets: { view: [this.tabs[0].route] } }]);
+            this._router.navigate([this._getParentRoute(), { outlets: { view: [this.tabs[0].route] } }]);
         }
     }
 
-    onActivateRoute(viewInstance: any) {
+    onActivateRoute(viewInstance: any): void {
         this._resetAllTabs();
         const selectedTabIndex = this._getSelectedTabIndex(viewInstance);
         this.tabs[selectedTabIndex].selected = true;
     }
 
-    onClickTab(route: string) {
-        this._router.navigate(['locations', { outlets: { view: [route] } }]);
+    onClickTab(route: string): void {
+        this._router.navigate([this._getParentRoute(), { outlets: { view: [route] } }]);
     }
 
-    private _resetAllTabs() {
+    private _resetAllTabs(): void {
         for (const tab of this.tabs) {
             tab.selected = false;
         }
     }
 
-    private _getSelectedTabIndex(viewInstance: any) {
+    private _getSelectedTabIndex(viewInstance: any): number {
         return this.tabs.findIndex(x => x.component && x.component.prototype && x.component.prototype.isPrototypeOf(viewInstance));
+    }
+
+    private _getParentRoute(): string {
+        const index = this._router.url.indexOf('/(view');
+        return this._router.url.slice(0, index);
     }
 }
 

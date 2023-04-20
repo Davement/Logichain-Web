@@ -19,7 +19,7 @@ export class LogiButton implements OnInit {
         this.buttonId = this.id;
     }
 
-    onButtonClick() {
+    onButtonClick(): void {
         this.onClick.emit(this);
     }
 }

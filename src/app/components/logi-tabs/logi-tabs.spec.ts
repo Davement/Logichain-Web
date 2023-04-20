@@ -33,7 +33,7 @@ describe('LogiTabs', () => {
             },
         ];
 
-        suite.init = () => {
+        suite.init = (): void => {
             suite.instance.ngOnInit();
         }
 

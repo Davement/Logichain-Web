@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 
 export module GlobalProvider {
-    export function getGlobalProviders(moduleDef: NgModule) {
+    export function getGlobalProviders(moduleDef: NgModule): NgModule {
         if (!moduleDef.providers) {
             moduleDef.providers = [];
         }
