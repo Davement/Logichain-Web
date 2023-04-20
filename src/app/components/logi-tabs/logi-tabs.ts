@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { EstablishmentLocationView } from "../../pages/location/overview/establishment-location/establishment-location";
 
 @Component({
     selector: 'logi-tabs',
@@ -20,7 +19,7 @@ export class LogiTabs implements OnInit {
 
     onActivateRoute(viewInstance: any) {
         this._resetAllTabs();
-        let selectedTabIndex = this._getSelectedTabIndex(viewInstance);
+        const selectedTabIndex = this._getSelectedTabIndex(viewInstance);
         this.tabs[selectedTabIndex].selected = true;
     }
 
@@ -29,7 +28,7 @@ export class LogiTabs implements OnInit {
     }
 
     private _resetAllTabs() {
-        for (let tab of this.tabs) {
+        for (const tab of this.tabs) {
             tab.selected = false;
         }
     }

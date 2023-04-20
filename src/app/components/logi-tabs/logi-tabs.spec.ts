@@ -12,7 +12,7 @@ describe('LogiTabs', () => {
 
     beforeEach(async () => {
         suite = TestUtilSuite as any;
-        const compiled = await TestUtil.beforeEachCompiler(LogiTabs, GlobalProvider.getGlobalProviders({
+        await TestUtil.beforeEachCompiler(LogiTabs, GlobalProvider.getGlobalProviders({
             declarations: [LogiTabs],
             imports: [
                 RouterTestingModule.withRoutes([])
@@ -55,7 +55,7 @@ describe('LogiTabs', () => {
     it('should call navigate when tab is not selected on initialize', () => {
         TestUtil.SpyOnProperty(suite.instance['_router'] as any, 'url').mockReturnValue('locations/');
         suite.init();
-        expect(TestUtil.MostRecentCall(suite.navigateSpy).args[0]).toEqual(['locations', { 'outlets': { 'view': [ 'company' ] } } ]);
+        expect(TestUtil.MostRecentCall(suite.navigateSpy).args[0]).toEqual(['locations', { 'outlets': { 'view': ['company'] } }]);
     });
 
     it('should do not call navigate deep link to tab on initialize', () => {
@@ -68,7 +68,7 @@ describe('LogiTabs', () => {
         TestUtil.SpyOnProperty(suite.instance['_router'] as any, 'url').mockReturnValue('locations/');
         suite.init();
         suite.instance.onClickTab('establishments');
-        expect(TestUtil.MostRecentCall(suite.navigateSpy).args[0]).toEqual(['locations', { 'outlets': { 'view': [ 'establishments' ] } } ]);
+        expect(TestUtil.MostRecentCall(suite.navigateSpy).args[0]).toEqual(['locations', { 'outlets': { 'view': ['establishments'] } }]);
     });
 
     it('should add selected class to selected tab', async () => {
@@ -81,7 +81,7 @@ describe('LogiTabs', () => {
         suite.fixture.detectChanges();
         await suite.fixture.whenStable();
 
-        let tabs = suite.fixture.nativeElement.querySelector('.tabs');
+        const tabs = suite.fixture.nativeElement.querySelector('.tabs');
         expect(tabs.children.length).toEqual(2);
         expect(tabs.children[1].classList.toString()).toEqual('selected');
     });
@@ -92,5 +92,4 @@ interface TestSuite<T> extends ITestUtilSuite<T> {
     router: TestUtil.Mock<Router>;
     navigateSpy: TestUtil.Spy;
     tabs: ITab[];
-  }
-  
+}

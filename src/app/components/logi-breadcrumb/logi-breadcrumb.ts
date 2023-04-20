@@ -6,5 +6,5 @@ import { Component } from "@angular/core";
     styleUrls: ['./logi-breadcrumb.scss']
 })
 export class LogiBreadcrumb {
-    
+
 }

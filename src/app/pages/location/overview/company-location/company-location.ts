@@ -22,10 +22,10 @@ export class CompanyLocationView extends OverviewTemplateBase implements OnInit 
     }
 
     override onClickNew(): void {
-
+        // TODO: Add logic
     }
 
     override onClickDelete(): void {
-
+        // TODO: Add logic
     }
 }

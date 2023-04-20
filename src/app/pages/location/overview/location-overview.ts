@@ -11,7 +11,7 @@ import { OverviewTabsTemplateBase } from "../../../templates/overview-tabs/overv
 })
 
 export class LocationOverview extends OverviewTabsTemplateBase {
-    override title: string = 'Locations';
+    override title: string = "Locations";
     override tabs: ITab[] = [
         {
             name: 'Company',

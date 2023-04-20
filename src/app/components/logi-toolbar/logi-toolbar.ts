@@ -73,13 +73,13 @@ export class LogiToolbar implements OnDestroy {
     }
 
     private _deleteItemIfExists(id: string): void {
-        let item = this._elemRef.nativeElement.querySelector('#' + id);
+        const item = this._elemRef.nativeElement.querySelector('#' + id);
         item?.remove();
     }
 
     private _addButton(item: IToolbarItem): void {
-        let container = this._getToolbarContainer(item.location);
-        let component = container?.createComponent(LogiButton, { index: item.options.index });
+        const container = this._getToolbarContainer(item.location);
+        const component = container?.createComponent(LogiButton, { index: item.options.index });
         if (!component) {
             return;
         }

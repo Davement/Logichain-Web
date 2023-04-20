@@ -4,18 +4,18 @@ import { IToolbarItem } from "./logi-toolbar.model";
 @Injectable()
 export class ToolbarController implements IToolbarController {
     @Output() itemsChanged = new EventEmitter<IToolbarItem>();
-    
+
     private items: IToolbarItem[] = [];
 
     add(item: IToolbarItem, beforeItemId?: string): void {
-        let index = this.items.findIndex(x => x.id === item.id);
+        const index = this.items.findIndex(x => x.id === item.id);
         if (index !== -1) {
             // TODO add log: Item id already exists
             return;
         }
 
         if (beforeItemId) {
-            var beforeItemIndex = this.items.findIndex(x => x.id === beforeItemId);
+            const beforeItemIndex = this.items.findIndex(x => x.id === beforeItemId);
             item.options.index = beforeItemIndex;
             this.items.splice(beforeItemIndex, 0, item);
         } else {
@@ -25,7 +25,7 @@ export class ToolbarController implements IToolbarController {
     }
 
     show(id: string): void {
-        let item = this._getItemById(id);
+        const item = this._getItemById(id);
         if (!item) {
             // TODO log: Item not found
             return;
@@ -36,7 +36,7 @@ export class ToolbarController implements IToolbarController {
     }
 
     hide(id: string): void {
-        let item = this._getItemById(id);
+        const item = this._getItemById(id);
         if (!item) {
             // TODO log: Item not found
             return;
@@ -47,7 +47,7 @@ export class ToolbarController implements IToolbarController {
     }
 
     enable(id: string): void {
-        let item = this._getItemById(id);
+        const item = this._getItemById(id);
         if (!item) {
             // TODO log: Item not found
             return;
@@ -58,7 +58,7 @@ export class ToolbarController implements IToolbarController {
     }
 
     disable(id: string): void {
-        let item = this._getItemById(id);
+        const item = this._getItemById(id);
         if (!item) {
             // TODO log: Item not found
             return;

@@ -21,10 +21,10 @@ export class EstablishmentLocationView extends OverviewTemplateBase implements O
     }
 
     override onClickNew(): void {
-
+        // TODO: Add logic
     }
 
     override onClickDelete(): void {
-
+        // TODO: Add logic
     }
 }
