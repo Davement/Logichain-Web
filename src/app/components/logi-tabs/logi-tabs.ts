@@ -38,6 +38,9 @@ export class LogiTabs implements OnInit {
     }
 
     private _getParentRoute(): string {
+        if (!this._router.url.includes('view')) {
+            return this._router.url;
+        }
         const index = this._router.url.indexOf('/(view');
         return this._router.url.slice(0, index);
     }
